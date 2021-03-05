@@ -20,13 +20,20 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Long saveCar(Car car){
-        return repository.save(car).getVin();
+
+        Car saveCar = repository.save(car);
+        return saveCar.getVin();
     }
 
     @Override
     public Car getCar(Long vin){
         Optional<Car> car = repository.findById(vin);
         return car.map(c -> new Car(c.getMake(), c.getModel(), c.getYear(), c.getVin())).orElse(null);
+    }
+
+    @Override
+    public void deleteCar(Long vin){
+        repository.deleteById(vin);
     }
 
 }
