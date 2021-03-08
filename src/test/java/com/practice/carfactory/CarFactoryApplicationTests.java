@@ -51,4 +51,12 @@ class CarFactoryApplicationTests {
 		String location = response.getHeader("location");
 		assertTrue(location.endsWith("/cars/23"));
 	}
+
+	@Test
+	void deleteCar() {
+		delete("cars/2170").
+				then().
+				statusCode(204);
+
+	}
 }
