@@ -14,7 +14,7 @@ public class CarTest {
 
     @Test
     void getAllCars(){
-        when(repository.findAll()).thenReturn(Collections.singletonList(new Car("Volvo", "XC90", 2015, 1L)));
+        when(repository.findAll()).thenReturn(Collections.singletonList(new Car(1l,"Volvo", "XC90", 2015)));
 
         CarService service = new CarServiceImpl(repository);
         List<Car> carList = service.getAllCars();
@@ -24,7 +24,7 @@ public class CarTest {
 
     @Test
     void getCar(){
-        when(repository.findById(2l)).thenReturn(Optional.of(new Car("BMW", "i8", 2019, 2l)));
+        when(repository.findById(2l)).thenReturn(Optional.of(new Car(2l, "BMW", "i8", 2019)));
 
         CarService service = new CarServiceImpl(repository);
         Car car = service.getCar(2l);
@@ -33,17 +33,17 @@ public class CarTest {
 
     @Test
     void saveCar(){
-        Car car = new Car("Buick", "Regal", 2016, 3l);
+        Car car = new Car(3l, "Buick", "Regal", 2016);
         when(repository.save(car)).thenReturn(car);
 
         CarService service = new CarServiceImpl(repository);
-        Long vin = service.saveCar(new Car("Buick", "Regal", 2016, 3l));
+        Long vin = service.saveCar(new Car(3l,"Buick", "Regal", 2016));
         assertEquals(3l, vin);
     }
 
     @Test
     void deleteCar(){
-        Car car2 = new Car("Buick", "Regal", 2016, 3l);
+        Car car2 = new Car(3l, "Buick", "Regal", 2016);
         when(repository.findById(3l)).thenReturn(Optional.of(car2));
 
         CarService service = new CarServiceImpl(repository);
