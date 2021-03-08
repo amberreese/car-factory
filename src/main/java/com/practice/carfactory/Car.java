@@ -14,7 +14,6 @@ import javax.persistence.Id;
 @Entity
 public class Car {
     @Id
-    @GeneratedValue
     private Long vin;
     private String make;
     private String model;

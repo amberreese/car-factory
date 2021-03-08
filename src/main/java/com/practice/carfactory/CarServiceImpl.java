@@ -18,14 +18,6 @@ public class CarServiceImpl implements CarService {
         this.repository = repository;
     }
 
-    private static List<Car> cars = new ArrayList<>();
-
-    static {
-        cars.add(new Car(12l,"Chevy", "Tahoe",2019));
-        cars.add(new Car(32l ,"Dodge", "Durango",2014));
-        cars.add(new Car(11l,"Kia", "Sorento",2007));
-
-    }
 
     @Override
     public List<Car> getAllCars(){
