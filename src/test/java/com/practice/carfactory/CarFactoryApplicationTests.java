@@ -9,11 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.GregorianCalendar;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.http.ContentType.JSON;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,7 +23,7 @@ class CarFactoryApplicationTests {
 //Car Integration Test
 
 	@Test
-	void getCar() {
+	public void getCar() {
 		get("/cars/200").
 				then().
 				contentType(JSON).
