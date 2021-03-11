@@ -6,8 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -41,5 +44,13 @@ public class CarServiceImpl implements CarService {
     public void deleteCar(Long vin){
         repository.deleteById(vin);
     }
+
+    @Override
+    public List<Car> getAllCarsByMake(String make) {
+        List<Car> carList = repository.findAll();
+        List<Car> carStream = carList.stream().filter(car -> car.getMake().equalsIgnoreCase(make)).collect(Collectors.toList());
+        return carStream;
+    }
+
 
 }

@@ -3,8 +3,10 @@ package com.practice.carfactory;
 import com.practice.carfactory.repositories.CarRepository;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.html.Option;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -50,6 +52,6 @@ public class CarTest {
 
         service.deleteCar(3l);
         verify(repository, times(1)).deleteById(3l);
-
     }
+
 }

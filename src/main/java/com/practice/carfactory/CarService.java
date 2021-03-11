@@ -10,4 +10,6 @@ public interface CarService {
     Long saveCar(Car car);
     Car getCar(Long vin);
     void deleteCar(Long vin);
+
+    List<Car> getAllCarsByMake(String make);
 }
