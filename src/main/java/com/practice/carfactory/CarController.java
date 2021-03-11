@@ -47,7 +47,7 @@ class CarController {
     }
 
     @GetMapping("/cars")
-    public List<Car> getAllCars(@RequestParam(value = "make", required = false) String make){
+    public List<Car> getAllCars(@RequestParam(value="make", required = false) String make){
         if (make == null){
             return service.getAllCars();
         }
